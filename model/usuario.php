@@ -40,7 +40,8 @@ class Usuario{
         
         if( $res->num_rows>0 ){ 
             $row = $res->fetch_assoc();
-            return $row[nombre];
+            return $row["nombre"];
+            $conn->close();
         } else{
             return false;
         }

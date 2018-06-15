@@ -28,7 +28,7 @@ if(!empty($_POST["usuari"]) && !empty($_POST["password"])){
     $validarPassword = $userObj2->validarPassword($usuari, $password);
     
     if( $validarUsuari == "true"){
-        if( $validarPassword == "jugador" || $validarPassword == "entrenador" ){
+        if( $validarPassword == "jugador" ){
             
             //Si el Usuari es CERT i Password CERT
             //Iniciar SESSIO d'Usuari
@@ -43,7 +43,7 @@ if(!empty($_POST["usuari"]) && !empty($_POST["password"])){
     } else{
         
         //Si el Usuari es FALS
-        $errorForm = "* Usuari inexistent";
+        $errorForm = "* Usuarios inexistent";
     } 
 }
 
