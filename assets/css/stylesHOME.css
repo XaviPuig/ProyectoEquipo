@@ -1,0 +1,96 @@
+/* CSS PARA LA PAGINA DE INICIAL DE LOGIN.PHP */
+
+html, body{ margin: 0; width: 100%; height: 100%; }
+#main{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+
+    -ms-display: flex;
+    display: flex;
+    /* alineacion vertical */
+    align-items: center;
+    /* alineacion horizontal */
+    justify-content: center;
+}
+
+/*CSS FORMULARIO HOME*/
+.formLogin{
+    margin: auto;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+#btLogin{
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: lightgray;
+    color: black;
+    font-weight: bold;
+}
+#btLogin:hover{  
+    color: black;
+    background-color: white;
+    border-color: black;
+    box-shadow: inset 2px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.pError{
+    width: 200px;
+    color: white;
+    font-size: 0.8em;
+}
+/*FIN CSS FORMULARIO HOME*/
+
+/*CSS FONDO_PAG HOME*/
+.BackgroundPage{
+   background: rgba(219,37,0,1);
+    background: -moz-linear-gradient(-45deg, 
+        rgba(219,37,0,1) 0%, 
+        rgba(213,32,0,1) 7%, 
+        rgba(179,0,0,1) 50%, 
+        rgba(114,4,4,1) 100%);
+    background: -webkit-gradient(left top, right bottom, 
+        color-stop(0%, rgba(219,37,0,1)), 
+        color-stop(7%, rgba(213,32,0,1)), 
+        color-stop(50%, rgba(179,0,0,1)), 
+        color-stop(100%, rgba(114,4,4,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(219,37,0,1) 0%, 
+        rgba(213,32,0,1) 7%, 
+        rgba(179,0,0,1) 50%, 
+        rgba(114,4,4,1) 100%);
+    background: -o-linear-gradient(-45deg, 
+        rgba(219,37,0,1) 0%, 
+        rgba(213,32,0,1) 7%, 
+        rgba(179,0,0,1) 50%, 
+        rgba(114,4,4,1) 100%);
+    background: -ms-linear-gradient(-45deg, 
+        rgba(219,37,0,1) 0%, rgba(213,32,0,1) 7%, 
+        rgba(179,0,0,1) 50%, 
+        rgba(114,4,4,1) 100%);
+    background: linear-gradient(135deg, 
+        rgba(219,37,0,1) 0%, 
+        rgba(213,32,0,1) 7%, 
+        rgba(179,0,0,1) 50%, 
+        rgba(114,4,4,1) 100%); 
+}
+/*FIN CSS FONDO_PAG HOME*/
+
+
+.menu-nav{
+    width: 100%;
+    height: 50px;
+    
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    background-color: lightcoral;
+    color: black;
+}
