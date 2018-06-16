@@ -35,17 +35,20 @@ class Usuario{
     
     public function validarPassword($usuari, $password){
         $conn = Conexion::getConexion();
-        $sql = "SELECT dni, password, nombre FROM usuario LEFT JOIN categoria ON usuario.Refcategoria_id = categoria.categoria_id WHERE dni='".$usuari."' AND password='".$password."'";
-        $res = $conn->query($sql);
+        $sql = "SELECT usuario.dni, usuario.password, categoria.categoria_id FROM usuario LEFT JOIN categoria ON usuario.Refcategoria_id = categoria.categoria_id WHERE dni='".$usuari."' AND password='".$password."'";
+        //$sql = "SELECT usuario.dni, usuario.password FROM usuario WHERE dni='".$usuari."' AND password='".$password."'";
+        $result = $conn->query($sql);
         
-        if( $res->num_rows>0 ){ 
-            $row = $res->fetch_assoc();
-            return $row["nombre"];
-            $conn->close();
+        if( $result->num_rows>"0" ){ 
+            $row = $result->fetch_assoc();
+            //$row["nombre"];
+            return $row["dni"];
+            //return  $row["categoria_id"];
+            //return var_dump($result);
         } else{
-            return false;
+            return "-1";
+            //return $sql;
         }
     }
-    
 }
 ?>

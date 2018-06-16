@@ -21,25 +21,25 @@ if(!empty($_POST["usuari"]) && !empty($_POST["password"])){
     //validar Usuario || retorna true o false
     $validarUsuari = $userObj->validarUsuario($usuari);
     
-     //Instanciar un nou objecteUsuari per validar
-    $userObj2 = new Usuario($usuari, $password);
-    
     //validar password con el usuario elegido
-    $validarPassword = $userObj2->validarPassword($usuari, $password);
+    $validarPassword = $userObj->validarPassword($usuari, $password);
     
-    if( $validarUsuari == "true"){
-        if( $validarPassword == "jugador" ){
+    if( $validarUsuari == "true"){ 
+        var_dump($validarPassword);
+        var_dump($result);
+        /*if(  $validarPassword != "-1" ){
             
             //Si el Usuari es CERT i Password CERT
             //Iniciar SESSIO d'Usuari
-            $errorForm = $validarPassword;
+            $errorForm = var_dump($result);
+            
             //$errorForm = "* Usuari correcte";
             $msgCategory = "Es de la categoria jugador" ;
         } else{
             
             //Si el Usuari es CERT i Password es FALS
             $errorForm = "* Consenya incorrecte";
-        }
+        }*/
     } else{
         
         //Si el Usuari es FALS
