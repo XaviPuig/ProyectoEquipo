@@ -40,7 +40,7 @@ class Usuario{
         $result = $conn->query($sql);
         
         if( $result->num_rows>"0" ){ 
-            $row = $res->fetch_assoc();
+            $row = $result->fetch_assoc();
             //$row["nombre"];
             return $row["dni"];
             //return  $row["categoria_id"];

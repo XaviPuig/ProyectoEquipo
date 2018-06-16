@@ -26,6 +26,7 @@ if(!empty($_POST["usuari"]) && !empty($_POST["password"])){
     
     if( $validarUsuari == "true"){ 
         var_dump($validarPassword);
+        var_dump($result);
         /*if(  $validarPassword != "-1" ){
             
             //Si el Usuari es CERT i Password CERT
