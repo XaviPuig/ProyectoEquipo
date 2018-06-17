@@ -19,7 +19,8 @@ class Usuario{
     //Retorna un valor
     public function getNombre(){return $this->usuari;}
     public function getPassword(){return $this->password;}
-     
+
+//// PAGINA "LogIn.php" ////
     public function validarUsuario($usuari){
         $conn = Conexion::getConexion();
         $sql = "SELECT dni FROM usuario WHERE dni='$usuari'";
@@ -39,7 +40,7 @@ class Usuario{
         //$sql = "SELECT usuario.dni, usuario.password FROM usuario WHERE dni='".$usuari."' AND password='".$password."'";
         $result = $conn->query($sql);
         
-        if( $result->num_rows>"0" ){ 
+        if( $result->num_rows>0 ){ 
             $row = $result->fetch_assoc();
             //$row["nombre"];
             return $row["dni"];
@@ -50,5 +51,17 @@ class Usuario{
             //return $sql;
         }
     }
-}
+    
+//// PAGINA "pagINICIAL.php" ////
+    public function llistatEquips(){
+        
+        $conn = Conexion::getConexion();
+        $sql = "SELECT ___ FROM ___";
+        $result = $conn->query($sql);
+        
+        $rows = $result->num_rows;
+        $equips = array();
+    }
+    
+} // FI CLASS USUARIO
 ?>

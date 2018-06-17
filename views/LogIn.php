@@ -24,7 +24,7 @@ if(!empty($_POST["usuari"]) && !empty($_POST["password"])){
     //validar password con el usuario elegido
     $validarPassword = $userObj->validarPassword($usuari, $password);
     
-    if( $validarUsuari == "true"){ 
+    if( ($validarUsuari=="jugador") && ($validarUsuari=="entrenador") ){ 
         var_dump($validarPassword);
         var_dump($result);
         /*if(  $validarPassword != "-1" ){
@@ -60,7 +60,7 @@ if(!empty($_POST["usuari"]) && !empty($_POST["password"])){
 <body>
     <main id="main" class="BackgroundPage">
         <article>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <input type="text" class="formLogin" placeholder="Usuari (dni)" name="usuari" autofocus />
                 <input type="password" class="formLogin" placeholder="Contrasenya" name="password" />
                 <input type="submit" id="btLogin" name="submit" class="formLogin" value="Entrar">
