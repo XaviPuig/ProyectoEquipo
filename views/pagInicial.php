@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EQUIPO BQ</title>
-    <link rel="stylesheet" href="./assets/css/stylesINICIAL.css"/>
+    <link rel="stylesheet" href="./assets/css/stylesInicial.css"/>
 </head>
 <body>
     <header>
@@ -29,7 +29,7 @@
         </nav>
     </header>
     <main>
-        <span>%CONTENT%  </span>
+        <span>%CONTENT%</span>
     </main>
 </body>
 </html>
