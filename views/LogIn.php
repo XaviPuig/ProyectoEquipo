@@ -15,36 +15,40 @@ if(!empty($_POST["usuari"]) && !empty($_POST["password"])){
     $usuari = tractarEntrada($_POST["usuari"]);
     $password = tractarEntrada($_POST["password"]);
 
-    //Instanciar un nou objecteUsuari per validar
+    //Instanciar un nou objecteUsuari per validar el LogIn
     $userObj = new Usuario($usuari, $password);
-    
+ 
+
+ /*   
     //validar Usuario || retorna true o false
+    
     $validarUsuari = $userObj->validarUsuario($usuari);
+    if( $validarUsuari == "true" ){
+        echo "Usuario OK";
+    }
+
+    validar password con el usuario elegido
+    if( $validarUsuari == "true" ){ 
+         
+    var_dump($validarPassword);
+    var_dump($result);
     
-    //validar password con el usuario elegido
+    //la funció validarUsuari() per comprovar el camp USUARI(DNI) 
+    //no era compatible amb la funcio validarPassword()
+*/
+
     $validarPassword = $userObj->validarPassword($usuari, $password);
-    
-    if( ($validarUsuari=="jugador") && ($validarUsuari=="entrenador") ){ 
-        var_dump($validarPassword);
-        var_dump($result);
-        /*if(  $validarPassword != "-1" ){
+        if(  ($validarPassword=="jugador") || ($validarPassword=="directiu") || ($validarPassword=="entrenador") ){
             
-            //Si el Usuari es CERT i Password CERT
             //Iniciar SESSIO d'Usuari
-            $errorForm = var_dump($result);
             
-            //$errorForm = "* Usuari correcte";
-            $msgCategory = "Es de la categoria jugador" ;
+            $errorForm = "* Usuari correcte";
+            $msgCategory = "Es de la categoria ".$validarPassword ;
         } else{
-            
-            //Si el Usuari es CERT i Password es FALS
-            $errorForm = "* Consenya incorrecte";
-        }*/
-    } else{
-        
-        //Si el Usuari es FALS
-        $errorForm = "* Usuarios inexistent";
-    } 
+            //Retornar un missatge d'error si l'usuari o contrasenya son incorrectes
+            $errorForm = "* Usuari i/o contrasenya incorrectes";
+            $msgCategory = $validarPassword ;
+        }
 }
 
 ?>
