@@ -13,6 +13,6 @@ return array(
     "user"      =>          "root",
     "pass"      =>          "",
     "database"  =>          "usuarios"*/
-)
+);
 
 ?>

@@ -4,8 +4,8 @@ require_once("connexion.php");
 
 class Usuario{
 
-    public $usuari;
-    public $password;
+    //public $usuari;
+    //public $password;
     
     public function __construct($usuari, $password){
         $usuari = $usuari;
@@ -20,48 +20,54 @@ class Usuario{
     public function getNombre(){return $this->usuari;}
     public function getPassword(){return $this->password;}
 
+
 //// PAGINA "LogIn.php" ////
+/*
     public function validarUsuario($usuari){
-        $conn = Conexion::getConexion();
+        $connexion = Conexion::getConexion();
         $sql = "SELECT dni FROM usuario WHERE dni='$usuari'";
-        $result = $conn->query($sql);
-    
+        $result = $connexion->query($sql);
+            
         if( $result->num_rows>0 ){
-			return true;
-            $conn->close();
+			$result->close();
+            $connexion->close();
+            return true;
         } else{
+            $result->close();
+            $connexion->close();
             return false;
-        } // Okey! Funciona!
+        }
     }
+*/
     
     public function validarPassword($usuari, $password){
-        $conn = Conexion::getConexion();
-        $sql = "SELECT usuario.dni, usuario.password, categoria.categoria_id FROM usuario LEFT JOIN categoria ON usuario.Refcategoria_id = categoria.categoria_id WHERE dni='".$usuari."' AND password='".$password."'";
-        //$sql = "SELECT usuario.dni, usuario.password FROM usuario WHERE dni='".$usuari."' AND password='".$password."'";
-        $result = $conn->query($sql);
-        
-        if( $result->num_rows>0 ){ 
+        $connexion = Conexion::getConexion();
+
+        $sql = "SELECT dni, nomCategoria 
+                FROM usuarios.usuario 
+                LEFT JOIN usuarios.categoria 
+                ON usuarios.usuario.Refcategoria_id = usuarios.categoria.categoria_id 
+                WHERE dni='$usuari' AND password='$password'";
+        $result = $connexion->query($sql);
+
+        if( $result->num_rows>0 ){
             $row = $result->fetch_assoc();
-            //$row["nombre"];
-            return $row["dni"];
-            //return  $row["categoria_id"];
-            //return var_dump($result);
+            return $row["nomCategoria"];
         } else{
-            return "-1";
-            //return $sql;
+            return -1;
         }
     }
     
 //// PAGINA "pagINICIAL.php" ////
-    public function llistatEquips(){
+   /* public function llistatEquips(){
         
-        $conn = Conexion::getConexion();
+        $connexion = Conexion::getConexion();
         $sql = "SELECT ___ FROM ___";
-        $result = $conn->query($sql);
+        $result = $connexion->query($sql);
         
         $rows = $result->num_rows;
         $equips = array();
-    }
+    }*/
     
 } // FI CLASS USUARIO
 ?>

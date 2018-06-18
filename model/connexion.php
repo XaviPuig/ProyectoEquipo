@@ -2,7 +2,7 @@
 
 class Conexion {
 
-    private $conn;
+    private $connexion="";
     public function __construct() {
 
     }
@@ -10,12 +10,12 @@ class Conexion {
     public function getConexion(){
         
         $db = require_once("baseDades.php");
-        $conn = new mysqli( $db["host"], $db["user"], $db["pass"], $db["database"]);
+        $connexion = new mysqli( $db["host"], $db["user"], $db["pass"], $db["database"] );
 
-        if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
+        if ($connexion->connect_error) {
+			die("Connection failed: " . $connexion->connect_error);
         }
-        return $conn;
+        return $connexion;
     }
 }
 ?>
